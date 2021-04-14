@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">GuidoMia</string>
+    <string name="pros_string">
+         1. What is your Favourite food?
+      <br>
+         2. Which is your favourite sport?
+      </br>
+      <br>
+         3. Whats your bucket list?
+      </br></string>
 </resources>

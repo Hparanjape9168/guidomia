@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="carModel"
+            type="com.hardik.guidomia.model.CarModel" />
+        
+        <variable
+            name="listener"
+            type="com.hardik.guidomia.util.ClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/light_grey">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_car_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:onClick="@{listener::onViewClicked}"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/imageView_car"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:src="@drawable/tacoma"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="25dp">
+
+                <TextView
+                    android:id="@+id/textView_make_model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{carModel.make+' '+carModel.model}"
+                    android:textSize="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/textView_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price:"
+                        android:textSize="15dp"/>
+
+                    <TextView
+                        android:id="@+id/textView_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(carModel.marketPrice)}"
+                        android:textSize="15dp"/>
+
+                </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:numStars="@{carModel.rating}"
+                    android:isIndicator="true"
+                    android:layout_marginTop="5dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linerLayout_carProsCons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="25dp"
+            android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pros"
+            android:textSize="20dp"/>
+
+         <TextView
+             android:id="@+id/textView_pros"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="15dp"
+             android:layout_marginTop="5dp"
+             android:layout_marginLeft="25dp"
+             android:text="@string/pros_string"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cons"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/textView_cons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="25dp"
+                android:text="@string/pros_string"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+<View
+    android:id="@+id/view_Line"
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:background="@color/orange"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"/>
+
+</LinearLayout>
+
+</layout>
