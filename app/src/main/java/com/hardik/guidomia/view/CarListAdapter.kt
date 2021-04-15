@@ -1,6 +1,5 @@
 package com.hardik.guidomia.view
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +35,10 @@ class CarListAdapter(val carList: ArrayList<CarModel>) : RecyclerView.Adapter<Ca
     }
 
     override fun onViewClicked(view: View) {
-        Log.d(Constant.TAG,"onViewClicked")
+       val data = view.tag
+        if(data is Int){
+            Constant.itemExpand.value = data
+            notifyDataSetChanged()
+        }
     }
 }

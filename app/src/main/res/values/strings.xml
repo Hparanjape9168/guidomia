@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">GuidoMia</string>
-    <string name="pros_string">
-         1. What is your Favourite food?
-      <br>
-         2. Which is your favourite sport?
-      </br>
-      <br>
-         3. Whats your bucket list?
-      </br></string>
+    <string name="str_prons">Prons</string>
+    <string name="str_cons">Cons</string>
+    <string name="data_failed">Data not available</string>
+    <string name="network_failed">Turn On your Internet/Wi-Fi to Access Json Data</string>
+    <string name="str_price">Price:</string>
+    <string name="title_model_tacoma">Tacoma 2021</string>
+    <string name="hint_model">Any Model</string>
+    <string name="hint_make">Any Make</string>
+    <string name="str_filters">Filters</string>
 </resources>

@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="220dp"
+                android:layout_height="210dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Tacoma 2021"
+                android:text="@string/title_model_tacoma"
                 android:textColor="@color/white"
-                android:textSize="35dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -48,9 +48,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Get's Your Now.."
+                android:text="Get's your Now"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView_title"
                 app:layout_constraintTop_toBottomOf="@+id/textView_title" />
@@ -71,7 +71,7 @@
                 android:id="@+id/textView_filters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Filters"
+                android:text="@string/str_filters"
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,10 +81,12 @@
                 android:id="@+id/editText_make"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
                 android:background="@drawable/edit_text_style"
-                android:hint="Any Make"
+                android:hint="@string/hint_make"
                 android:visibility="visible"
+                android:inputType="text"
                 app:layout_constraintStart_toStartOf="@+id/textView_filters"
                 app:layout_constraintTop_toBottomOf="@+id/textView_filters" />
 
@@ -93,9 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:inputType="text"
                 android:background="@drawable/edit_text_style"
-                android:hint="Any Model"
-                android:padding="5dp"
+                android:hint="@string/hint_model"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/editText_make"
                 app:layout_constraintTop_toBottomOf="@+id/editText_make" />
@@ -104,27 +107,48 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:id="@+id/constraintLayout_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraint_filter">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <TextView
+                android:id="@+id/textView_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/network_failed"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/car_list"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="1dp"
-                android:nestedScrollingEnabled="false"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_filter"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

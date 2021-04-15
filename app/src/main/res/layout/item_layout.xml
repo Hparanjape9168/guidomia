@@ -6,10 +6,14 @@
         <variable
             name="carModel"
             type="com.hardik.guidomia.model.CarModel" />
-        
+
         <variable
             name="listener"
             type="com.hardik.guidomia.util.ClickListener" />
+
+        <variable
+            name="constant"
+            type="com.hardik.guidomia.util.Constant" />
 
     </data>
 
@@ -30,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:tag="@{carModel.position}"
             android:onClick="@{listener::onViewClicked}"
             android:layout_margin="10dp">
 
@@ -37,8 +42,8 @@
                 android:id="@+id/imageView_car"
                 android:layout_width="80dp"
                 android:layout_height="70dp"
-                android:src="@drawable/tacoma"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                bind:imageURL="@{carModel.make}"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -51,7 +56,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{carModel.make+' '+carModel.model}"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"
+                    android:textColor="@color/black_alpha"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -63,15 +69,17 @@
                         android:id="@+id/textView_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Price:"
-                        android:textSize="15dp"/>
+                        android:text="@string/str_price"
+                        android:textSize="15dp"
+                        android:textColor="@color/black_alpha"/>
 
                     <TextView
                         android:id="@+id/textView_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{String.valueOf(carModel.marketPrice)}"
-                        android:textSize="15dp"/>
+                        android:text="@{String.valueOf(carModel.customerPrice)+'k'}"
+                        android:textSize="15dp"
+                        android:textColor="@color/black_alpha"/>
 
                 </LinearLayout>
 
@@ -82,7 +90,8 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:numStars="@{carModel.rating}"
                     android:isIndicator="true"
-                    android:layout_marginTop="5dp"/>
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/RatingBar"/>
 
             </LinearLayout>
 
@@ -93,38 +102,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="25dp"
-            android:visibility="gone">
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            bind:detailsLayout="@{carModel.position}">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pros"
-            android:textSize="20dp"/>
+            android:textColor="@color/black_alpha"
+            android:text="@string/str_prons"
+            android:textSize="18dp"/>
 
          <TextView
              android:id="@+id/textView_pros"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:textSize="15dp"
-             android:layout_marginTop="5dp"
+             android:textSize="14dp"
              android:layout_marginLeft="25dp"
-             android:text="@string/pros_string"/>
+             android:textColor="@color/black"
+             bind:pronsConsList="@{carModel.prosList}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cons"
-                android:textSize="20dp"/>
+                android:text="@string/str_cons"
+                android:textColor="@color/black_alpha"
+                android:textSize="18dp"/>
 
             <TextView
                 android:id="@+id/textView_cons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:layout_marginTop="5dp"
+                android:textSize="14dp"
                 android:layout_marginLeft="25dp"
-                android:text="@string/pros_string"/>
+                android:textColor="@color/black"
+                bind:pronsConsList="@{carModel.consList}"/>
 
         </LinearLayout>
 
@@ -134,7 +147,7 @@
 <View
     android:id="@+id/view_Line"
     android:layout_width="match_parent"
-    android:layout_height="2dp"
+    android:layout_height="4px"
     android:background="@color/orange"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
