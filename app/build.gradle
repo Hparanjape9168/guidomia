@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
 android {
     compileSdkVersion 29
 
@@ -38,7 +39,8 @@ android {
 def lifeCycleExtensionVersion = '1.1.1'
 def retrofitVersion = '2.3.0'
 def rxJavaVersion = '2.1.1'
-def roomVersion = '2.1.0-rc01'
+def room_version = "2.1.0-rc01"
+
 
 dependencies {
 
@@ -54,12 +56,10 @@ dependencies {
 
     implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
 
-    implementation "androidx.room:room-runtime:2.2.3"
-  //  kapt "androidx.room:room-compiler:2.2.3"
-    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
-
-
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
